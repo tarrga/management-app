@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useLogin } from '../hooks/useLogin';
 
 export default function Login() {
-  const [email, setEmail] = useState('crash@gmail.com');
+  const [email, setEmail] = useState('guest@gmail.com');
   const [password, setPassword] = useState('qweasd');
   const { login, isPending, error } = useLogin();
 

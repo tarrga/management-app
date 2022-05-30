@@ -12,7 +12,9 @@ export default function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUp(email, password, displayName, thumbnail);
+    if (!thumbnailError) {
+      signUp(email, password, displayName, thumbnail);
+    }
   };
 
   const handleFileChange = (e) => {
@@ -42,7 +44,7 @@ export default function Signup() {
       </label>
       <label>
         <span>password:</span>
-        <input type='password' required onChange={(e) => setPassword(e.target.value)} value={password} />
+        <input type='password' minLength='6' required onChange={(e) => setPassword(e.target.value)} value={password} />
       </label>
       <label>
         <span>display name:</span>
@@ -51,6 +53,7 @@ export default function Signup() {
       <label>
         <span>profile thumbnail:</span>
         <input type='file' required onChange={handleFileChange} />
+        {error && <div className='error'>{error}</div>}
         {thumbnailError && <div className='error'>{thumbnailError}</div>}
       </label>
       {!isPending && (

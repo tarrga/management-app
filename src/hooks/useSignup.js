@@ -54,7 +54,7 @@ export const useSignup = () => {
       if (!isCancelled) {
         console.log(error.message);
         setIsPending(false);
-        setError(null);
+        setError(error.message);
       }
     }
   };
