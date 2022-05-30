@@ -16,7 +16,7 @@ function App() {
   return (
     <div className='App'>
       {authIsReady && (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           {user && <Sidebar />}
           <div className='container'>
             <Navbar />
